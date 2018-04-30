@@ -41,6 +41,14 @@ services:
       - insight_mona_data:/home/node/insight/data
 
   bitzenyd:
+    image: nao20010128nao/docker-bitzenyd:alpine
+    networks:
+      - znyd
+  insight-zeny:
+    depends_on:
+      -bitzenyd
+    networks:
+      - znyd
     image: monacoex/insight:bitzeny
     environment:
       VIRTUAL_HOST: zeny.insight.monacoin.ml
@@ -56,3 +64,6 @@ services:
 volumes:
   insight_zeny_data:
   insight_mona_data:
+    
+networks:
+  znyd:
