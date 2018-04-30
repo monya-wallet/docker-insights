@@ -58,6 +58,8 @@ services:
 
   dogecoind:
     image: joschua011/dogecoind-docker:latest
+    ports:
+      - "3004:3002"
     volumes:
       - dogecoind_data
       
@@ -65,7 +67,9 @@ services:
     image: cdmackie/insight-dogecoin:latest
     volumes:
       - insight_doge_data    
-
+    links:
+      - dogecoind:dogecoind
+      
 volumes:
   insight_zeny_data:
   insight_mona_data:
