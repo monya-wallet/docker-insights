@@ -53,10 +53,8 @@ services:
     ports:
       - "3003:3000"
     volumes:
-      - insight_zeny_data:/home/node/insight/data
+      - insight_zeny_data:/root/.insight-bitzeny
 volumes:
   insight_zeny_data:
   insight_mona_data:
     
-networks:
-  znyd:
