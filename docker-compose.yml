@@ -46,7 +46,7 @@ services:
       - znyd
   insight-zeny:
     depends_on:
-      -bitzenyd
+      - bitzenyd
     networks:
       - znyd
     image: monacoex/insight:bitzeny
