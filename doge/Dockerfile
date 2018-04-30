@@ -1,8 +1,6 @@
-FROM node:0.10-wheezy
+FROM node:0.10.48
 
 EXPOSE 3000
-
-
 
 ENV HOME /root
 
