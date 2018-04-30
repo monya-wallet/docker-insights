@@ -60,7 +60,7 @@ services:
     image: joschua011/dogecoind-docker:latest
     ports:
       - "3004:3002"
-    volumes:
+    volumes_from:
       - dogecoind_data
       
   insight-doge:
