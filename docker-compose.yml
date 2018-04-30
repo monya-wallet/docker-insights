@@ -55,26 +55,6 @@ services:
     volumes:
       - insight_zeny_data:/root/.insight-bitzeny
 
-
-  dogecoind:
-    image: joschua011/dogecoind-docker:latest
-    volumes:
-      - dogecoind_data:/dogecoin/data
-      
-  insight-doge:
-    build: ./doge
-    ports:
-      - "3004:3002"
-    environment:
-      VIRTUAL_HOST: doge.insight.monacoin.ml
-      VIRTUAL_PORT: 3000
-      LETSENCRYPT_HOST: doge.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
-    volumes:
-      - insight_doge_data:/root/data   
-    links:
-      - dogecoind:dogecoind
       
 volumes:
   insight_zeny_data:
