@@ -41,7 +41,7 @@ services:
       - insight_mona_data:/home/node/insight/data
 
   insight-zeny:
-    
+    build: ./zeny
     
     environment:
       VIRTUAL_HOST: zeny.insight.monacoin.ml
