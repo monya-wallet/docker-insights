@@ -21,11 +21,13 @@ ENV INSIGHT_DB /root/data
 
 VOLUME /root/data
 
-CMD [ "node", "insight.js" ]
+
 
 ADD . /usr/src/app
 WORKDIR /usr/src/app
 
-RUN git clone https://github.com/Dogeparty/insight-doge-api.git .
+RUN git clone https://github.com/Dogeparty/insight-doge-api.git
+WORKDIR /usr/src/app/insight-doge-api
 RUN npm install
 
+CMD [ "node", "insight.js" ]
