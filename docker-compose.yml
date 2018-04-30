@@ -54,7 +54,21 @@ services:
       - "3003:3000"
     volumes:
       - insight_zeny_data:/root/.insight-bitzeny
+
+
+  dogecoind:
+    image: joschua011/dogecoind-docker:latest
+    volumes:
+      - dogecoind_data
+      
+  insight-doge:
+    image: cdmackie/insight-dogecoin:latest
+    volumes:
+      - insight_doge_data    
+
 volumes:
   insight_zeny_data:
   insight_mona_data:
+  insight_doge_data:
+  dogecoind_data:
     
