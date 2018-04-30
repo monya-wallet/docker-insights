@@ -3,9 +3,9 @@ FROM node:0.10.48
 WORKDIR /
 
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get -y upgrade
 
-RUN apt-get install build-essential curl git nginx python unzip
+RUN apt-get -y install build-essential curl git nginx python unzip
 
 RUN curl -LO https://github.com/BitzenyCoreDevelopers/bitzeny/releases/download/z2.0.1/bitzeny-2.0.1-x86_64-linux-gnu.tar.gz
 RUN tar xvzf bitzeny-2.0.1-x86_64-linux-gnu.tar.gz
