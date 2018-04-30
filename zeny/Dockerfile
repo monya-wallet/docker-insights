@@ -11,8 +11,6 @@ RUN curl -LO https://github.com/BitzenyCoreDevelopers/bitzeny/releases/download/
 RUN tar xvzf bitzeny-2.0.1-x86_64-linux-gnu.tar.gz
 RUN cp /bitzeny-2.0.1/bin/bitzenyd /usr/local/bin/
 
-RUN bitzenyd -daemon -bind=0.0.0.0 -checkblocks=24 -checklevel=0 -dbcache=64 -disablewallet -listen -maxconnections=64 -par=2 -port=9253 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -rpcport=9252 -server -whitelist=127.0.0.1 -rpcpassword=password -rpcuser=user 
-
 RUN git clone --depth 1 https://github.com/BitzenyCoreDevelopers/insight-ui-bitzeny.git
 RUN git clone --depth 1 https://github.com/BitzenyCoreDevelopers/insight-api-bitzeny.git
 WORKDIR /insight-api-bitzeny
@@ -28,5 +26,7 @@ ENV INSIGHT_PORT=3000
 
 EXPOSE 3000
 
-RUN ["node", "/insight-api-bitzeny/insight.js"]
+CMD bitzenyd -daemon -bind=0.0.0.0 -checkblocks=24 -checklevel=0 -dbcache=64 -disablewallet -listen -maxconnections=64 -par=2 -port=9253 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -rpcport=9252 -server -whitelist=127.0.0.1 -rpcpassword=password -rpcuser=user 
+CMD ["node", "/insight-api-bitzeny/insight.js"]
+
 
