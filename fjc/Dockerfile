@@ -14,7 +14,7 @@ RUN mkdir .fujicoin
 
 
 WORKDIR /home/node/insight-fjc/node_modules/bitcore-node
-RUN chmod 777 bin/bitcore-node 
+RUN chmod 777 ./bin/bitcore-node 
 RUN npm install zmq
 
 RUN mkdir /root/.fujicoin
@@ -24,5 +24,6 @@ WORKDIR /home/node/insight-fjc
 
 ADD bitcore-node.json .
 
+CMD chmod 777 node_modules/bitcore-node/bin/bitcore-node 
 CMD node_modules/bitcore-node/bin/bitcore-node start
 EXPOSE 3001

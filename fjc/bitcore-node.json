@@ -11,7 +11,7 @@
     "bitcoind": {
       "spawn": {
         "datadir": "/root/.fujicoin/",
-        "exec": "/root/fujicoin-bitcore/fujicoind",
+        "exec": "/home/node/fujicoind",
         "rpcuser": "user",
         "rpcpassword": "password"
       }
