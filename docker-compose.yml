@@ -60,13 +60,13 @@ services:
     
     environment:
       VIRTUAL_HOST: fjc.insight.monacoin.ml
-      VIRTUAL_PORT: 3002
+      VIRTUAL_PORT: 3001
       LETSENCRYPT_HOST: fjc.insight.monacoin.ml
       LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
       LETSENCRYPT_TEST: "false"
     restart: always
     ports:
-      - "3000:3002"
+      - "3004:3001"
     volumes:
       - insight_fjc_data:/root/
 

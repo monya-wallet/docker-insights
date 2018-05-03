@@ -26,6 +26,6 @@ ENV INSIGHT_PORT=3000
 
 EXPOSE 3000
 
-CMD bitzenyd -daemon -bind=0.0.0.0 -checkblocks=24 -checklevel=0 -dbcache=64 -disablewallet -listen -maxconnections=64 -par=2 -port=9253 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -rpcport=9252 -server -whitelist=127.0.0.1 -rpcpassword=password -rpcuser=user;sleep 3;node /insight-api-bitzeny/insight.js
+CMD rm ~/.insight-bitzeny -rf;bitzenyd -daemon -bind=0.0.0.0 -checkblocks=24 -checklevel=0 -dbcache=64 -disablewallet -listen -maxconnections=64 -par=2 -port=9253 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -rpcport=9252 -server -whitelist=127.0.0.1 -rpcpassword=password -rpcuser=user;sleep 3;node /insight-api-bitzeny/insight.js
 
 
