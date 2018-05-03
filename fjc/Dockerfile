@@ -17,7 +17,7 @@ WORKDIR /home/node/insight-fjc/node_modules/bitcore-node
 RUN chmod 777 bin/bitcore-node 
 RUN npm install zmq
 
-RUN /root/.fujicoin
+RUN mkdir /root/.fujicoin
 ADD fujicoin.conf /root/.fujicoin/
 
 WORKDIR /home/node/insight-fjc
