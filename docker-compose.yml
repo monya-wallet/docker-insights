@@ -55,7 +55,7 @@ services:
     volumes:
       - insight_zeny_data:/root/.insight-bitzeny
 
-  insight-zeny:
+  insight-fjc:
     build: ./fjc
     
     environment:
