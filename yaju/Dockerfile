@@ -18,7 +18,9 @@ RUN make install
 WORKDIR /home/node/yajucoin/src
 RUN mkdir -p obj/zerocoin
 WORKDIR /home/node/yajucoin/src/leveldb
-RUN chmod 777 build_detect_platform‏
+RUN ls
+RUN chmod 777 build_detect_platform
+
 RUN make clean
 RUN make libleveldb.a libmemenv.a
 WORKDIR /home/node/yajucoin/src
@@ -26,7 +28,7 @@ RUN make -f makefile.unix
 
 WORKDIR /home/node
 
-RUN yajucoin/src/yajucoind -bind=0.0.0.0 -listen=1 -maxconnections=8 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server=1 -upnp=1 -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -rpcport=1919 -port=4545 -addnode=212.232.36.147
+RUN yajucoin/src/yajucoind -bind=0.0.0.0 -listen=1 -maxconnections=8 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server=1 -upnp=1 -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -rpcport=1919 -port=4545 -addnode=212.232.36.147 -daemon
 RUN git clone https://github.com/MissMonacoin/insight-yajucoin.git
 RUN git clone https://github.com/MissMonacoin/insight-api-yajucoin
 
