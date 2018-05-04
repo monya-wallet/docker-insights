@@ -61,7 +61,7 @@ services:
     environment:
       VIRTUAL_HOST: yaju.insight.monacoin.ml
       VIRTUAL_PORT: 8100
-      LETSENCRYPT_HOST: zeny.insight.monacoin.ml
+      LETSENCRYPT_HOST: yaju.insight.monacoin.ml
       LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
       LETSENCRYPT_TEST: "false"
     restart: always
