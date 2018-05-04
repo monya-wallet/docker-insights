@@ -18,7 +18,6 @@ RUN make install
 WORKDIR /home/node/yajucoin/src
 RUN mkdir -p obj/zerocoin
 WORKDIR /home/node/yajucoin/src/leveldb
-RUN ls
 RUN chmod 777 build_detect_platform
 
 RUN make clean
