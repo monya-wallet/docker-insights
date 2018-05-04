@@ -55,24 +55,24 @@ services:
     volumes:
       - insight_zeny_data:/root/.insight-bitzeny
 
-  insight-fjc:
-    build: ./fjc
+  insight-yaju:
+    build: ./yaju
     
     environment:
-      VIRTUAL_HOST: fjc.insight.monacoin.ml
-      VIRTUAL_PORT: 3001
-      LETSENCRYPT_HOST: fjc.insight.monacoin.ml
+      VIRTUAL_HOST: yaju.insight.monacoin.ml
+      VIRTUAL_PORT: 8100
+      LETSENCRYPT_HOST: zeny.insight.monacoin.ml
       LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
       LETSENCRYPT_TEST: "false"
     restart: always
     ports:
-      - "3004:3001"
+      - "3005:8100"
     volumes:
-      - insight_fjc_data:/root/
+      - insight_yaju_data:/root/
 
       
 volumes:
   insight_zeny_data:
   insight_mona_data:
-  insight_fjc_data:
+  insight_yaju_data:
     

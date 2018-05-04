@@ -22,7 +22,7 @@
     },
     "insight-api": {
       "routePrefix": "api",
-      "enableCache": true
+      "enableCache": false
     }
   }
 }
