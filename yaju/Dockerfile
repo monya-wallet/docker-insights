@@ -44,6 +44,6 @@ ENV BITCOIND_P2P_PORT=4545
 ENV INSIGHT_NETWORK=livenet
 ENV INSIGHT_PORT=8100
 
-EXPOSE 8100
+EXPOSE 8100 4545
 
 ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen=1 -maxconnections=8 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server=1 -upnp=1 -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -rpcport=1919 -port=4545 -addnode=212.232.36.147 -daemon;sleep 30;node /home/node/insight-api-yajucoin/insight.js
