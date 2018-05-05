@@ -67,9 +67,10 @@ services:
     restart: always
     ports:
       - "3005:8100"
-      - "3006:4545"
+      - "24401:24401"
     volumes:
       - insight_yaju_data:/root/
+      - ./yaju/wallet.dat:/home/node/wallet.dat
 
       
 volumes:
