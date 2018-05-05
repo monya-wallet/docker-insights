@@ -70,7 +70,7 @@ services:
       - "24401:24401"
     volumes:
       - insight_yaju_data:/root/
-      - ./yaju/wallet.dat:/home/node/wallet.dat
+      - ./yaju/wallet.dat:/root/.yajucoin/wallet.dat
 
       
 volumes:
