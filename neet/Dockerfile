@@ -38,11 +38,11 @@ WORKDIR /home/node/insight-neetcoin
 ENV INSIGHT_PUBLIC_PATH=public
 ENV BITCOIND_USER=user
 ENV BITCOIND_PASS=password
-ENV BITCOIND_PORT=1919
-ENV BITCOIND_P2P_PORT=21101
+ENV BITCOIND_PORT=21010
+ENV BITCOIND_P2P_PORT=21011
 ENV INSIGHT_NETWORK=livenet
 ENV INSIGHT_PORT=2110
 
-EXPOSE 2110 21101
+EXPOSE 2110 21011
 
-ENTRYPOINT /home/node/NEETCOIN/src/NEETCOINd -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -rpcport=1919 -dns -daemon;sleep 15;node /home/node/insight-api-neetcoin/insight.js
+ENTRYPOINT /home/node/NEETCOIN/src/NEETCOINd -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -dns -daemon;sleep 15;node /home/node/insight-api-neetcoin/insight.js
