@@ -69,9 +69,8 @@ services:
       - "3005:8100"
       - "24401:24401"
     volumes:
-      - insight_yaju_data:/root/
       - ./yaju/wallet.dat:/root/.yajucoin/wallet.dat
-
+      - insight_yaju_data:/root/
       
 volumes:
   insight_zeny_data:
