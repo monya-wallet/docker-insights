@@ -45,4 +45,4 @@ ENV INSIGHT_PORT=8100
 
 EXPOSE 8100 24401
 
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -rpcport=1919 -addnode=212.232.36.147 -daemon -wallet=/home/node/wallet.dat;sleep 8;node /home/node/insight-api-yajucoin/insight.js
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -rpcport=1919 -addnode=212.232.36.147 -daemon -wallet=/home/node/wallet.dat;sleep 15;node /home/node/insight-api-yajucoin/insight.js
