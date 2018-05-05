@@ -71,9 +71,26 @@ services:
     volumes:
       - ./yaju/wallet.dat:/root/.yajucoin/wallet.dat
       - insight_yaju_data:/root/
+
+  insight-neet:
+    build: ./neet
+    
+    environment:
+      VIRTUAL_HOST: neet.insight.monacoin.ml
+      VIRTUAL_PORT: 2110
+      LETSENCRYPT_HOST: neet.insight.monacoin.ml
+      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
+      LETSENCRYPT_TEST: "false"
+    restart: always
+    ports:
+      - "3006:2110"
+      - "21101:21101"
+    volumes:
+      - insight_neet_data:/root/
       
 volumes:
   insight_zeny_data:
   insight_mona_data:
   insight_yaju_data:
+  insight_neet_data:
     
