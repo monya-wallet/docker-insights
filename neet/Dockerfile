@@ -27,8 +27,8 @@ RUN make -f makefile.unix
 
 WORKDIR /home/node
 
-RUN git clone https://github.com/MissMonacoin/insight-neetcoin.git
-RUN git clone https://github.com/MissMonacoin/insight-api-neetcoin.git
+RUN git clone https://github.com/NEETCOINTeam/insight-neetcoin.git
+RUN git clone https://github.com/NEETCOINTeam/insight-api-neetcoin.git
 
 WORKDIR /home/node/insight-api-neetcoin
 RUN npm install
