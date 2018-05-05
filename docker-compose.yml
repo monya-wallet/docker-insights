@@ -67,6 +67,7 @@ services:
     restart: always
     ports:
       - "3005:8100"
+      - "3006:4545"
     volumes:
       - insight_yaju_data:/root/
 
