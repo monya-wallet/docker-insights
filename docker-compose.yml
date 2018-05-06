@@ -26,34 +26,34 @@ services:
       - nginx-proxy
     restart: always
     
-  insight-mona:
-    image: monacoex/insight:monacoin
-    environment:
-      VIRTUAL_HOST: mona.insight.monacoin.ml
-      VIRTUAL_PORT: 3001
-      LETSENCRYPT_HOST: mona.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
-    restart: always
-    ports:
-      - "3002:3001"
-    volumes:
-      - insight_mona_data:/home/node/insight/data
+  # insight-mona:
+  #   image: monacoex/insight:monacoin
+  #   environment:
+  #     VIRTUAL_HOST: mona.insight.monacoin.ml
+  #     VIRTUAL_PORT: 3001
+  #     LETSENCRYPT_HOST: mona.insight.monacoin.ml
+  #     LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
+  #     LETSENCRYPT_TEST: "false"
+  #   restart: always
+  #   ports:
+  #     - "3002:3001"
+  #   volumes:
+  #     - insight_mona_data:/home/node/insight/data
 
-  insight-zeny:
-    build: ./zeny
+  # insight-zeny:
+  #   build: ./zeny
     
-    environment:
-      VIRTUAL_HOST: zeny.insight.monacoin.ml
-      VIRTUAL_PORT: 3000
-      LETSENCRYPT_HOST: zeny.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
-    restart: always
-    ports:
-      - "3003:3000"
-    volumes:
-      - insight_zeny_data:/root/.insight-bitzeny
+  #   environment:
+  #     VIRTUAL_HOST: zeny.insight.monacoin.ml
+  #     VIRTUAL_PORT: 3000
+  #     LETSENCRYPT_HOST: zeny.insight.monacoin.ml
+  #     LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
+  #     LETSENCRYPT_TEST: "false"
+  #   restart: always
+  #   ports:
+  #     - "3003:3000"
+  #   volumes:
+  #     - insight_zeny_data:/root/.insight-bitzeny
 
   insight-yaju:
     build: ./yaju
