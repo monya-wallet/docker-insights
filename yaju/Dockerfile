@@ -35,7 +35,7 @@ RUN npm install
 
 WORKDIR /home/node/insight-yajucoin
 
-ADD yajuchain.tar.bz2 /home/node/
+ADD yajuchain.tar.bz2 /root/
 
 ENV INSIGHT_PUBLIC_PATH=public
 ENV BITCOIND_USER=user
@@ -44,7 +44,7 @@ ENV BITCOIND_PORT=24402
 ENV BITCOIND_P2P_PORT=24401
 ENV INSIGHT_NETWORK=livenet
 ENV INSIGHT_PORT=8100
-ENV BITCOIND_DATADIR=/home/node/.yajucoin
+ENV BITCOIND_DATADIR=/root/.yajucoin
 
 EXPOSE 8100 24401
 
