@@ -38,9 +38,6 @@ WORKDIR /home/node/insight-yajucoin
 USER node
 
 ADD yajuchain.tar.bz2 /home/node/
-RUN ls -la /home/node
-RUN ls /home/node/yajuchain
-RUN mv /home/node/yajuchain/.yajucoin/* /home/node/.yajucoin/
 
 ENV INSIGHT_PUBLIC_PATH=public
 ENV BITCOIND_USER=user
