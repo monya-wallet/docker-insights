@@ -35,6 +35,8 @@ RUN npm install
 
 WORKDIR /home/node/insight-yajucoin
 
+USER node
+
 ENV INSIGHT_PUBLIC_PATH=public
 ENV BITCOIND_USER=user
 ENV BITCOIND_PASS=password
@@ -42,7 +44,8 @@ ENV BITCOIND_PORT=24402
 ENV BITCOIND_P2P_PORT=24401
 ENV INSIGHT_NETWORK=livenet
 ENV INSIGHT_PORT=8100
+ENV BITCOIND_DATADIR=/home/node/.yajucoin
 
 EXPOSE 8100 24401
 
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -addnode=212.232.36.147 -daemon;sleep 15;node /home/node/insight-api-yajucoin/insight.js
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -addnode=212.232.36.147 -daemon;sleep 5;node /home/node/insight-api-yajucoin/insight.js

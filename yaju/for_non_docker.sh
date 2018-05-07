@@ -3,7 +3,7 @@ cd $HOME
 apt-get update
 apt-get -y upgrade
 
-apt-get -y install ntp git build-essential libssl-dev libdb-dev libdb++-dev libboost-all-dev libqrencode-dev libcurl4-openssl-dev curl libzip-dev
+apt-get -y install ntp git build-essential libssl-dev libdb-dev libdb++-dev libboost-all-dev libqrencode-dev libcurl4-openssl-dev curl libzip-dev nodejs npm
 
 git clone https://github.com/yajucoin/yajucoin.git
 cd $HOME/yajucoin/src
@@ -44,4 +44,4 @@ export INSIGHT_PORT=8100
 
 $HOME/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -addnode=212.232.36.147 -daemon;
 sleep 15;
-node $HOME/insight-api-yajucoin/insight.js
+nodejs $HOME/insight-api-yajucoin/insight.js
