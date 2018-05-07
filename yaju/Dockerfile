@@ -48,4 +48,4 @@ ENV BITCOIND_DATADIR=/root/.yajucoin
 
 EXPOSE 8100 24401
 
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -addnode=212.232.36.147 -daemon;sleep 5;node /home/node/insight-api-yajucoin/insight.js
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -addnode=212.232.36.147 -daemon;sleep 114514;node /home/node/insight-api-yajucoin/insight.js
