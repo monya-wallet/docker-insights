@@ -1,11 +1,12 @@
 FROM node:0.10.48
 
-WORKDIR /home/node
-
 RUN apt-get update
 RUN apt-get -y upgrade
 
 RUN apt-get -y install ntp git build-essential libssl-dev libdb-dev libdb++-dev libboost-all-dev libqrencode-dev libcurl4-openssl-dev curl libzip-dev
+
+USER node
+WORKDIR /home/node
 
 RUN git clone https://github.com/yajucoin/yajucoin.git
 WORKDIR /home/node/yajucoin/src
@@ -35,7 +36,7 @@ RUN npm install
 
 WORKDIR /home/node/insight-yajucoin
 
-USER node
+ADD yajuchain.tar.bz2 /home/node/
 
 ENV INSIGHT_PUBLIC_PATH=public
 ENV BITCOIND_USER=user
