@@ -32,7 +32,7 @@ RUN git clone https://github.com/MissMonacoin/insight-api-yajucoin
 
 WORKDIR /home/node/insight-api-yajucoin
 
-RUN npm i
+RUN npm install
 
 WORKDIR /home/node/insight-yajucoin
 
