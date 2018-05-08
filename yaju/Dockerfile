@@ -5,8 +5,6 @@ RUN apt-get -y upgrade
 
 RUN apt-get -y install ntp git build-essential libssl-dev libdb-dev libdb++-dev libboost-all-dev libqrencode-dev libcurl4-openssl-dev curl libzip-dev
 
-
-
 WORKDIR /home/node
 
 RUN git clone https://github.com/yajucoin/yajucoin.git
@@ -27,8 +25,6 @@ RUN make libleveldb.a libmemenv.a
 WORKDIR /home/node/yajucoin/src
 RUN make -f makefile.unix
 
-RUN mkdir /home/node/.yajucoin
-
 EXPOSE 24401 24402
 
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -dns -bind=0.0.0.0 -listen -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -rpcuser=user -rpcpassword=password -daemon -addnode=212.232.36.147
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -dns -bind=0.0.0.0 -listen -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -rpcuser=user -rpcpassword=password -addnode=212.232.36.147
