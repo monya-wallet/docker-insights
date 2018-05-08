@@ -31,7 +31,8 @@ RUN git clone https://github.com/MissMonacoin/insight-yajucoin.git
 RUN git clone https://github.com/MissMonacoin/insight-api-yajucoin
 
 WORKDIR /home/node/insight-api-yajucoin
-RUN npm install
+
+RUN npm i
 
 WORKDIR /home/node/insight-yajucoin
 
