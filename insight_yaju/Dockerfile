@@ -5,7 +5,7 @@ RUN apt-get -y upgrade
 
 RUN apt-get -y install git
 
-USER node
+
 
 WORKDIR /home/node
 
