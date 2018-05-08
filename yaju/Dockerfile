@@ -50,4 +50,4 @@ ENV LOGGER_LEVEL=debug
 
 EXPOSE 8100 24401 4545
 
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -addnode=212.232.36.147 -daemon -port=4545;sleep 5;node /home/node/insight-api-yajucoin/insight.js
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -daemon -port=4545 -rpcport=24402;sleep 5;node /home/node/insight-api-yajucoin/insight.js
