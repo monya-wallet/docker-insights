@@ -5,7 +5,7 @@ RUN apt-get -y upgrade
 
 RUN apt-get -y install ntp git build-essential libssl-dev libdb-dev libdb++-dev libboost-all-dev libqrencode-dev libcurl4-openssl-dev curl libzip-dev
 
-USER node
+
 
 WORKDIR /home/node
 
