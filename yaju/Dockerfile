@@ -41,7 +41,7 @@ ENV INSIGHT_PUBLIC_PATH=public
 ENV BITCOIND_USER=user
 ENV BITCOIND_PASS=password
 ENV BITCOIND_PORT=24402
-ENV BITCOIND_P2P_PORT=4545
+ENV BITCOIND_P2P_PORT=24401
 ENV INSIGHT_NETWORK=livenet
 ENV INSIGHT_PORT=8100
 ENV BITCOIND_DATADIR=/root/.yajucoin
@@ -50,4 +50,4 @@ ENV LOGGER_LEVEL=debug
 
 EXPOSE 8100 24401 4545
 
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -daemon -port=4545 -rpcport=24402;sleep 15;ss -untap;node /home/node/insight-api-yajucoin/insight.js
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -whitelist= -rpcuser=user -rpcpassword=password -daemon ;sleep 15;ss -untap;node /home/node/insight-api-yajucoin/insight.js
