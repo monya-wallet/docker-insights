@@ -45,4 +45,4 @@ ENV INSIGHT_PORT=2110
 
 EXPOSE 2110 21011
 
-ENTRYPOINT /home/node/NEETCOIN/src/NEETCOINd -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -rpcpassword=password -dns -daemon;sleep 15;node /home/node/insight-api-neetcoin/insight.js
+ENTRYPOINT /home/node/NEETCOIN/src/NEETCOINd -bind=0.0.0.0 -listen -maxconnections=64 -par=2 -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -upnp -whitelist=127.0.0.1 -rpcuser=user -port=4545 -rpcpassword=password -dns -daemon;sleep 15;node /home/node/insight-api-neetcoin/insight.js

@@ -5,6 +5,8 @@ RUN apt-get -y upgrade
 
 RUN apt-get -y install ntp git build-essential libssl-dev libdb-dev libdb++-dev libboost-all-dev libqrencode-dev libcurl4-openssl-dev curl libzip-dev
 
+USER node
+
 WORKDIR /home/node
 
 RUN git clone https://github.com/yajucoin/yajucoin.git
@@ -25,31 +27,8 @@ RUN make libleveldb.a libmemenv.a
 WORKDIR /home/node/yajucoin/src
 RUN make -f makefile.unix
 
-WORKDIR /home/node
+RUN mkdir /home/node/.yajucoin
 
-RUN git clone https://github.com/MissMonacoin/insight-yajucoin.git
-RUN git clone https://github.com/MissMonacoin/insight-api-yajucoin
+EXPOSE 24401 24402
 
-WORKDIR /home/node/insight-api-yajucoin
-
-RUN npm install
-
-WORKDIR /home/node/insight-yajucoin
-
-ADD yajuchain.tar.bz2 /root/
-
-ENV INSIGHT_PUBLIC_PATH=public
-ENV BITCOIND_USER=user
-ENV BITCOIND_PASS=password
-ENV BITCOIND_PORT=24402
-ENV BITCOIND_P2P_PORT=24401
-ENV INSIGHT_NETWORK=livenet
-ENV INSIGHT_PORT=8100
-ENV BITCOIND_DATADIR=/root/.yajucoin
-ENV LOGGER_LEVEL=debug
-ENV INSIGHT_FORCE_RPC_SYNC=1
-
-
-EXPOSE 8100 24401 4545
-
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -rpcuser=user -rpcpassword=password -daemon ;sleep 120;node /home/node/insight-api-yajucoin/insight.js
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -dns -bind=0.0.0.0 -listen -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -rpcuser=user -rpcpassword=password -daemon -addnode=212.232.36.147
