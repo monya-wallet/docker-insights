@@ -52,4 +52,4 @@ ENV INSIGHT_FORCE_RPC_SYNC=1
 
 EXPOSE 8100 24401 4545
 
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -rpcuser=user -rpcpassword=password -daemon ;sleep 120pnode /home/node/insight-api-yajucoin/insight.js
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -bind=0.0.0.0 -listen -rpcallowip=127.0.0.1 -rpcbind=127.0.0.1 -server -rpcuser=user -rpcpassword=password -daemon ;sleep 120;node /home/node/insight-api-yajucoin/insight.js
