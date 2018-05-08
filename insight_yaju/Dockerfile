@@ -27,7 +27,7 @@ ENV INSIGHT_NETWORK=livenet
 ENV INSIGHT_PORT=8100
 ENV INSIGHT_FORCE_RPC_SYNC=1
 
-mkdir /home/node/.insight-yajucoin
+
 
 EXPOSE 8100
 
