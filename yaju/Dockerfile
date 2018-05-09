@@ -27,4 +27,4 @@ RUN make -f makefile.unix
 
 EXPOSE 24401 24402
 
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -dns -bind=0.0.0.0 -listen -rpcallowip=172.18.0.2 -rpcallowip=172.18.0.3 -rpcallowip=172.18.0.4 -rpcallowip=172.18.0.6 -rpcallowip=172.18.0.0/16 -rpcallowip=172.17.0.4 -rpcbind=0.0.0.0 -server -rpcuser=user -rpcpassword=password -addnode=212.232.36.147
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -dns -bind=0.0.0.0 -listen -rpcallowip=172.19.0.2 -rpcallowip=172.19.0.3 -rpcallowip=172.17.0.3 -rpcallowip=172.17.0.2  -rpcallowip=172.19.0.4 -rpcallowip=172.17.0.4 -debug -printtoconsole -staking=0 -rpcbind=0.0.0.0 -server -rpcuser=user -rpcpassword=password -addnode=212.232.36.147
