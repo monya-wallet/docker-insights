@@ -32,4 +32,4 @@ ENV INSIGHT_FORCE_RPC_SYNC=1
 
 EXPOSE 8100
 
-ENTRYPOINT node /home/node/insight-api-yajucoin/insight.js
+ENTRYPOINT sleep node /home/node/insight-api-yajucoin/insight.js
