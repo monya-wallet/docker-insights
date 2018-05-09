@@ -25,18 +25,9 @@ services:
     volumes_from:
       - nginx-proxy
     restart: always
-
-  yajucoin:
-    build: ./yaju
-    
-    restart: always
-    ports:
-      - "24401:24401"
-    volumes:
-      - yajucoind_data:/home/node/.yajucoin
     
   insight-yaju:
-    build: ./insight_yaju
+    build: ./yaju
     
     environment:
       VIRTUAL_HOST: yaju.insight.monacoin.ml
@@ -48,7 +39,7 @@ services:
     ports:
       - "3005:8100"
     volumes:
-      - insight_yaju_data:/home/node/.insight-yajucoin
+      - insight_yaju_data:/root/
 
   insight-neet:
     build: ./neet
@@ -66,6 +57,5 @@ services:
       - insight_neet_data:/root/
       
 volumes:
-  yajucoind_data:
   insight_yaju_data:
   insight_neet_data:

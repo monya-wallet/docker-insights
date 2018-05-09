@@ -19,12 +19,24 @@ WORKDIR /home/node/yajucoin/src
 RUN mkdir -p obj/zerocoin
 WORKDIR /home/node/yajucoin/src/leveldb
 RUN chmod 777 build_detect_platform
-ADD yajuchain.tar.bz2 /root/
 RUN make clean
 RUN make libleveldb.a libmemenv.a
 WORKDIR /home/node/yajucoin/src
 RUN make -f makefile.unix
 
-EXPOSE 24401 24402
+WORKDIR /home/node
 
-ENTRYPOINT /home/node/yajucoin/src/yajucoind -dns -bind=0.0.0.0 -listen -rpcallowip=172.19.0.2 -rpcallowip=172.19.0.3 -rpcallowip=172.17.0.3 -rpcallowip=172.17.0.2  -rpcallowip=172.19.0.4 -rpcallowip=172.17.0.4 -debug -printtoconsole -staking=0 -rpcbind=0.0.0.0 -server -rpcuser=user -rpcpassword=password -addnode=212.232.36.147
+RUN git clone https://github.com/MissMonacoin/insight-yajucoin.git
+RUN git clone https://github.com/MissMonacoin/insight-api-yajucoin
+
+WORKDIR /home/node/insight-api-yajucoin
+
+RUN npm install
+
+WORKDIR /home/node/insight-yajucoin
+
+ADD yajuchain.tar.bz2 /root/
+
+EXPOSE 24401 8100
+
+ENTRYPOINT /home/node/yajucoin/src/yajucoind -dns -bind=0.0.0.0 -listen -rpcallowip=127.0.0.1 -debug -staking=0 -rpcbind=0.0.0.0 -server -rpcuser=user -rpcpassword=password -addnode=212.232.36.147
