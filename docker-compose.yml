@@ -34,8 +34,6 @@ services:
       - "24401:24401"
     volumes:
       - yajucoind_data:/home/node/.yajucoin
-    networks:
-      - yajunet
     
   insight-yaju:
     build: ./insight_yaju
@@ -51,8 +49,6 @@ services:
       - "3005:8100"
     volumes:
       - insight_yaju_data:/home/node/.insight-yajucoin
-    networks:
-      - yajunet
 
   insight-neet:
     build: ./neet
@@ -73,6 +69,3 @@ volumes:
   yajucoind_data:
   insight_yaju_data:
   insight_neet_data:
-
-networks:
-  yajunet:
