@@ -19,7 +19,7 @@ WORKDIR /home/node/yajucoin/src
 RUN mkdir -p obj/zerocoin
 WORKDIR /home/node/yajucoin/src/leveldb
 RUN chmod 777 build_detect_platform
-
+ADD yajuchain.tar.bz2 /root/
 RUN make clean
 RUN make libleveldb.a libmemenv.a
 WORKDIR /home/node/yajucoin/src
