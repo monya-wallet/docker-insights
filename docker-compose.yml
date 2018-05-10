@@ -25,7 +25,21 @@ services:
     volumes_from:
       - nginx-proxy
     restart: always
-    
+
+  insight-mona:
+    image: monacoex/insight:monacoin
+    environment:
+      VIRTUAL_HOST: mona.insight.monacoin.ml
+      VIRTUAL_PORT: 3001
+      LETSENCRYPT_HOST: mona.insight.monacoin.ml
+      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
+      LETSENCRYPT_TEST: "false"
+    restart: always
+    ports:
+      - "3002:3001"
+    volumes:
+      - insight_mona_data:/home/node/insight/data
+      
   insight-yaju:
     build: ./yaju
     
@@ -59,3 +73,4 @@ services:
 volumes:
   insight_yaju_data:
   insight_neet_data:
+  insight_mona_data:
