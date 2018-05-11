@@ -35,7 +35,7 @@ RUN npm i
 
 WORKDIR /home/node/insight-yajucoin
 
-ADD yajuchain.tar.bz2 /root/
+# ADD yajuchain.tar.bz2 /root/
 
 ENV INSIGHT_PUBLIC_PATH=public
 ENV BITCOIND_USER=user
