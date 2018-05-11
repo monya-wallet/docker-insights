@@ -3,7 +3,7 @@ FROM node:0.10.48
 RUN apt-get update
 RUN apt-get -y upgrade
 
-RUN apt-get -y install build-essential libtool git autotools-dev autoconf pkg-config libssl-dev libboost-all-dev hexdump
+RUN apt-get -y install build-essential libtool git autotools-dev autoconf pkg-config libssl-dev libboost-all-dev
 
 WORKDIR /root
 
