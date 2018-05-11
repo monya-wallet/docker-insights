@@ -12,7 +12,7 @@ RUN git clone https://github.com/dogecoin/dogecoin.git
 WORKDIR /root/dogecoin
 
 RUN ./autogen.sh
-RUN ./configure --without-miniupnpc --disable-wallet
+RUN ./configure --without-miniupnpc --disable-wallet --disable-tests
 RUN make
 RUN make install
 
