@@ -1,23 +1,33 @@
 FROM node:0.10.48
 
-EXPOSE 3000
+RUN apt-get update
+RUN apt-get -y upgrade
 
-ENV HOME /root
+RUN apt-get -y install build-essential libtool git autotools-dev autoconf pkg-config libssl-dev libboost-all-dev libdb5.1-dev libdb5.1++-dev
+
+WORKDIR /root
+
+RUN https://github.com/dogecoin/dogecoin.git
+
+WORKDIR /root/dogecoin
+
+RUN ./autogen.sh
+RUN ./configure --without-miniupnpc --disable-wallet
+RUN make
+RUN make install
+
+EXPOSE 11111
 
 # config
 ENV NODE_ENV production
-ENV BITCOIND_HOST dogecoind
 ENV BITCOIND_PORT 22555
 ENV BITCOIND_P2P_PORT 22556
 ENV BITCOIND_USER user
 ENV BITCOIND_PASS pass
-#ENV BITCOIND_DATADIR       # bitcoind datadir. 'testnet3' will be appended automatically if testnet is used. NEED to finish with '/'. e.g: `/vol/data/`
-# [= 'livenet' | 'testnet']
 ENV INSIGHT_NETWORK livenet
+ENV INSIGHT_PORT 11111
 # Path where to store insight's internal DB. (defaults to $HOME/.insight)
 ENV INSIGHT_DB /root/data
-#ENV INSIGHT_SAFE_CONFIRMATIONS=6  # Nr. of confirmation needed to start caching transaction information
-#ENV INSIGHT_IGNORE_CACHE  # True to ignore cache of spents in transaction, with more than INSIGHT_SAFE_CONFIRMATIONS confirmations. This is useful for tracking double spents for old transactions.
 
 VOLUME /root/data
 
@@ -30,4 +40,4 @@ RUN git clone https://github.com/Dogeparty/insight-doge-api.git
 WORKDIR /usr/src/app/insight-doge-api
 RUN npm install
 
-CMD [ "node", "insight.js" ]
+CMD dogecoind -server -rpcuser=user -rpcpassword=password -daemon -debug -rpcallowip=127.0.0.1 -dns -bind=0.0.0.0 -listen ;sleep 5; node insight.js
