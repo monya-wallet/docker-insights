@@ -7,7 +7,7 @@ RUN apt-get -y install build-essential libtool git autotools-dev autoconf pkg-co
 
 WORKDIR /root
 
-RUN https://github.com/dogecoin/dogecoin.git
+RUN git clone https://github.com/dogecoin/dogecoin.git
 
 WORKDIR /root/dogecoin
 
