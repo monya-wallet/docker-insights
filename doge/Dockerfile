@@ -3,7 +3,7 @@ FROM node:0.10.48
 RUN apt-get update
 RUN apt-get -y upgrade
 
-RUN apt-get -y install build-essential libtool git autotools-dev autoconf pkg-config libssl-dev libboost-all-dev libdb5.1-dev libdb5.1++-dev
+RUN apt-get -y install build-essential libtool git autotools-dev autoconf pkg-config libssl-dev libboost-all-dev
 
 WORKDIR /root
 
@@ -28,10 +28,6 @@ ENV INSIGHT_NETWORK livenet
 ENV INSIGHT_PORT 11111
 # Path where to store insight's internal DB. (defaults to $HOME/.insight)
 ENV INSIGHT_DB /root/data
-
-VOLUME /root/data
-
-
 
 ADD . /usr/src/app
 WORKDIR /usr/src/app
