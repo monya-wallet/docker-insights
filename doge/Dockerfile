@@ -36,4 +36,4 @@ RUN git clone https://github.com/Dogeparty/insight-doge-api.git
 WORKDIR /usr/src/app/insight-doge-api
 RUN npm install
 
-CMD dogecoind -server -rpcuser=user -rpcpassword=password -daemon -debug -rpcallowip=127.0.0.1 -dns -bind=0.0.0.0 -listen ;sleep 5; node insight.js
+CMD dogecoind -server -rpcuser=user -rpcpassword=pass -daemon -debug -rpcallowip=127.0.0.1 -dns -bind=0.0.0.0 -listen ;sleep 5; node insight.js
