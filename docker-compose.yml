@@ -63,22 +63,8 @@ services:
     restart: always
     volumes:
       - insight_neet_data:/root/
-
-  insight-doge:
-    build: ./doge
-    
-    environment:
-      VIRTUAL_HOST: doge.insight.monacoin.ml
-      VIRTUAL_PORT: 11111
-      LETSENCRYPT_HOST: doge.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
-    restart: always
-    volumes:
-      - insight_doge_data:/root/
       
 volumes:
   insight_yaju_data:
   insight_neet_data:
   insight_mona_data:
-  insight_doge_data:
