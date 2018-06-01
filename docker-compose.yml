@@ -69,7 +69,7 @@ services:
     
     environment:
       VIRTUAL_HOST: koto.insight.monacoin.ml
-      VIRTUAL_PORT: 9401
+      VIRTUAL_PORT: 3001
       LETSENCRYPT_HOST: koto.insight.monacoin.ml
       LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
       LETSENCRYPT_TEST: "false"
