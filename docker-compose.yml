@@ -64,7 +64,21 @@ services:
     volumes:
       - insight_neet_data:/root/
       
+  insight-koto:
+    build: ./koto
+    
+    environment:
+      VIRTUAL_HOST: koto.insight.monacoin.ml
+      VIRTUAL_PORT: 9401
+      LETSENCRYPT_HOST: koto.insight.monacoin.ml
+      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
+      LETSENCRYPT_TEST: "false"
+    restart: always
+    volumes:
+      - insight_koto_data:/home/koto/insight/data
+      
 volumes:
   insight_yaju_data:
   insight_neet_data:
   insight_mona_data:
+  insight_koto_data:
