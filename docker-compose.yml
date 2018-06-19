@@ -38,18 +38,7 @@ services:
     volumes:
       - insight_mona_data:/home/node/insight/data
 
-  insight-ltc:
-    image: cdmackie/insight-litecoin
-    environment:
-      VIRTUAL_HOST: ltc.insight.monacoin.ml
-      #VIRTUAL_PORT: 3001
-      LETSENCRYPT_HOST: ltc.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
-    restart: always
-    volumes:
-      - insight_ltc_data:/home/node/insight/data
-      
+
   insight-yaju:
     build: ./yaju
     
@@ -62,6 +51,19 @@ services:
     restart: always
     volumes:
       - insight_yaju_data:/root/
+
+  insight-ltc:
+    build: ./ltc
+    
+    environment:
+      VIRTUAL_HOST: ltc.insight.monacoin.ml
+      VIRTUAL_PORT: 3001
+      LETSENCRYPT_HOST: ltc.insight.monacoin.ml
+      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
+      LETSENCRYPT_TEST: "false"
+    restart: always
+    volumes:
+      - insight_ltc_data:/root/
 
   insight-neet:
     build: ./neet
