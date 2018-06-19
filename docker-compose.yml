@@ -46,7 +46,7 @@ services:
       LETSENCRYPT_HOST: ltc.insight.monacoin.ml
       LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
       LETSENCRYPT_TEST: "false"
-    restart: alwaysa
+    restart: always
     volumes:
       - insight_ltc_data:/home/node/insight/data
       
