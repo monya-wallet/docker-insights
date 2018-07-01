@@ -65,19 +65,6 @@ services:
     volumes:
       - insight_ltc_data:/root/
 
-  insight-neet:
-    build: ./neet
-    
-    environment:
-      VIRTUAL_HOST: neet.insight.monacoin.ml
-      VIRTUAL_PORT: 2110
-      LETSENCRYPT_HOST: neet.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
-    restart: always
-    volumes:
-      - insight_neet_data:/root/
-      
   insight-koto:
     build: ./koto
     
