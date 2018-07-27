@@ -35,6 +35,8 @@ services:
       LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
       LETSENCRYPT_TEST: "false"
     restart: always
+    ports:
+      - 9401:9401
     volumes:
       - insight_mona_data:/home/node/insight/data
 
@@ -49,6 +51,8 @@ services:
       LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
       LETSENCRYPT_TEST: "false"
     restart: always
+    ports:
+      - 24401:24401
     volumes:
       - insight_yaju_data:/root/
 
