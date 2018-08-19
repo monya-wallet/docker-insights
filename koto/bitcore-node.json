@@ -1,0 +1,26 @@
+{
+  "network": "mainnet",
+  "port": 3001,
+  "services": [
+    "bitcoind",
+    "insight-api-koto",
+    "insight-ui-koto",
+    "web"
+  ],
+  "servicesConfig": {
+    "bitcoind": {
+      "spawn": {
+        "configdir": "/home/koto/insight",
+        "datadir": "/home/koto/insight/data",
+        "exec": "/usr/bin/kotod"
+      }
+    },
+    "insight-ui-koto": {
+      "routePrefix": "",
+      "apiPrefix": "api"
+    },
+    "insight-api-koto": {
+      "routePrefix": "api"
+    }
+  }
+}

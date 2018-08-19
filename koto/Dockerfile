@@ -1,4 +1,4 @@
-FROM fkfk/koto:1.0.14-bitcore
+FROM fkfk/koto:1.1.0-bitcore
 
 USER root
 
@@ -59,14 +59,16 @@ RUN set -ex \
 && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y libzmq3-dev git python
-RUN npm install --unsafe-perm -g https://github.com/wo01/bitcore-node-koto/tarball/5ec7125
-RUN ln -s /usr/bin/kotod /usr/local/lib/node_modules/bitcore-node-koto/bin/kotod
+RUN npm install --unsafe-perm -g https://github.com/wo01/bitcore-node-koto/tarball/48bead7
 USER koto
 WORKDIR /home/koto
 RUN bitcore-node create insight
 WORKDIR /home/koto/insight
-RUN bitcore-node install https://github.com/wo01/insight-api-koto/tarball/dda271f
-RUN bitcore-node install https://github.com/wo01/insight-ui-koto/tarball/8283e24
+RUN bitcore-node install https://github.com/wo01/insight-api-koto/tarball/a97ca1d
+RUN bitcore-node install https://github.com/wo01/insight-ui-koto/tarball/acfcaac
+
+COPY bitcore-node.json /home/koto/insight/bitcore-node.json
+COPY koto.conf /home/koto/insight/koto.conf
 
 VOLUME /home/koto/insight/data
 CMD /usr/local/lib/node_modules/bitcore-node-koto/bin/bitcore-node start
