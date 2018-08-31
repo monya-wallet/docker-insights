@@ -52,14 +52,14 @@ services:
       - insight_koto_data:/home/koto/insight/data
 
   js-ipfs:
-    image: docker pull ipfs/js-ipfs
+    image: ipfs/js-ipfs
     environment:
       VIRTUAL_HOST: js.ipfs.monacoin.ml
       VIRTUAL_PORT: 9090
       
 
   go-ipfs:
-    image: docker pull ipfs/go-ipfs
+    image: ipfs/go-ipfs
     environment:
       VIRTUAL_HOST: go.ipfs.monacoin.ml
       VIRTUAL_PORT: 8080
