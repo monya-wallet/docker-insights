@@ -1,4 +1,6 @@
-FROM fkfk/koto:1.0.14-bitcore
+# This dockerfile is powered by fkfk
+
+FROM fkfk/koto:1.1.0-bitcore
 
 USER root
 

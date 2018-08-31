@@ -56,19 +56,6 @@ services:
     volumes:
       - insight_yaju_data:/root/
 
-  insight-ltc:
-    build: ./ltc
-    
-    environment:
-      VIRTUAL_HOST: ltc.insight.monacoin.ml
-      VIRTUAL_PORT: 3001
-      LETSENCRYPT_HOST: ltc.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
-    restart: always
-    volumes:
-      - insight_ltc_data:/root/
-
   insight-koto:
     build: ./koto
     
@@ -81,6 +68,27 @@ services:
     restart: always
     volumes:
       - insight_koto_data:/home/koto/insight/data
+
+  js-ipfs:
+    image: docker pull ipfs/js-ipfs
+    environment:
+      VIRTUAL_HOST: js.ipfs.monacoin.ml
+      VIRTUAL_PORT: 9090
+      LETSENCRYPT_HOST: js.ipfs.monacoin.ml
+      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
+      LETSENCRYPT_TEST: "false"
+
+
+  go-ipfs:
+    image: docker pull ipfs/go-ipfs
+    environment:
+      VIRTUAL_HOST: go.ipfs.monacoin.ml
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: go.ipfs.monacoin.ml
+      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
+      LETSENCRYPT_TEST: "false"
+    volumes:
+      - go_ipfs_data
       
 volumes:
   insight_yaju_data:
@@ -88,3 +96,4 @@ volumes:
   insight_mona_data:
   insight_koto_data:
   insight_ltc_data:
+  go_ipfs_data:
