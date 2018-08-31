@@ -15,25 +15,11 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     restart: always
 
-  letsencrypt-nginx:
-    image: jrcs/letsencrypt-nginx-proxy-companion
-    container_name: letsencrypt-nginx
-    privileged: true
-    volumes:
-      - ./docker-compose.d/certs:/etc/nginx/certs:rw
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    volumes_from:
-      - nginx-proxy
-    restart: always
-
   insight-mona:
     image: monacoex/insight:monacoin
     environment:
       VIRTUAL_HOST: mona.insight.monacoin.ml
       VIRTUAL_PORT: 3001
-      LETSENCRYPT_HOST: mona.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
     restart: always
     ports:
       - 9401:9401
@@ -47,9 +33,7 @@ services:
     environment:
       VIRTUAL_HOST: yaju.insight.monacoin.ml
       VIRTUAL_PORT: 8100
-      LETSENCRYPT_HOST: yaju.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
+      
     restart: always
     ports:
       - 24401:24401
@@ -62,9 +46,7 @@ services:
     environment:
       VIRTUAL_HOST: koto.insight.monacoin.ml
       VIRTUAL_PORT: 3001
-      LETSENCRYPT_HOST: koto.insight.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
+      
     restart: always
     volumes:
       - insight_koto_data:/home/koto/insight/data
@@ -74,19 +56,14 @@ services:
     environment:
       VIRTUAL_HOST: js.ipfs.monacoin.ml
       VIRTUAL_PORT: 9090
-      LETSENCRYPT_HOST: js.ipfs.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
-
+      
 
   go-ipfs:
     image: docker pull ipfs/go-ipfs
     environment:
       VIRTUAL_HOST: go.ipfs.monacoin.ml
       VIRTUAL_PORT: 8080
-      LETSENCRYPT_HOST: go.ipfs.monacoin.ml
-      LETSENCRYPT_EMAIL: missmonacoin+monya@gmail.com
-      LETSENCRYPT_TEST: "false"
+      
     volumes:
       - go_ipfs_data
       
