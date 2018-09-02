@@ -18,7 +18,7 @@ services:
   insight-mona:
     image: monacoex/insight:monacoin
     environment:
-      VIRTUAL_HOST: mona.insight.monacoin.ml
+      VIRTUAL_HOST: mona.monacoin.ml
       VIRTUAL_PORT: 3001
     restart: always
     ports:
@@ -31,7 +31,7 @@ services:
     build: ./yaju
     
     environment:
-      VIRTUAL_HOST: yaju.insight.monacoin.ml
+      VIRTUAL_HOST: yaju.monacoin.ml
       VIRTUAL_PORT: 8100
       
     restart: always
@@ -44,7 +44,7 @@ services:
     build: ./koto
     
     environment:
-      VIRTUAL_HOST: koto.insight.monacoin.ml
+      VIRTUAL_HOST: koto.monacoin.ml
       VIRTUAL_PORT: 3001
       
     restart: always
@@ -54,14 +54,14 @@ services:
   js-ipfs:
     image: ipfs/js-ipfs
     environment:
-      VIRTUAL_HOST: js.ipfs.monacoin.ml
+      VIRTUAL_HOST: js-ipfs.monacoin.ml
       VIRTUAL_PORT: 9090
       
 
   go-ipfs:
     image: ipfs/go-ipfs
     environment:
-      VIRTUAL_HOST: go.ipfs.monacoin.ml
+      VIRTUAL_HOST: go-ipfs.monacoin.ml
       VIRTUAL_PORT: 8080
       
     volumes:
